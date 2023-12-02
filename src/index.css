@@ -1,13 +1,35 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Finger+Paint&family=Great+Vibes&family=Montserrat&family=Nunito+Sans:ital,opsz@1,6..12&family=Sacramento&family=Share+Tech+Mono&display=swap");
+
+:root {
+  --laranja: #ff5722;
+  --laranja-hover: #c03004;
+  --azul: #2d4059;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* color: var(--azul); */
+
+* {
+  font-family: "Share Tech Mono", monospace;
+  color: white;
 }
+body{
+  padding: 0;
+  margin: 0;
+  background-color: #252525;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+  select {
+      overflow: hidden;
+  }
+  a{
+    text-decoration: none;
+  }
