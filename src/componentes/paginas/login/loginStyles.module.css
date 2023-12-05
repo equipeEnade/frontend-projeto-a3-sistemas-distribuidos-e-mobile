@@ -5,6 +5,12 @@
   justify-content: center;
   align-items: center;
 }
+.container input{
+  padding-left: 15px;
+  color: black;
+  height: 30px;
+  font-size: 18px;
+}
 .form_login form,
 .form_cadastro form {
   display: flex;
