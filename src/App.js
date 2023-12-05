@@ -3,13 +3,15 @@ import CadastroJogoPage from './componentes/paginas/cadastroJogo/cadastroJogoPag
 import Home from './componentes/paginas/home/homePage';
 import Login from './componentes/paginas/login/loginPage';
 import { Routes, Route } from 'react-router-dom';
+import MeusJogos from './componentes/paginas/meusJogos/MeusJogos';
 
 function App() {
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/cadastroJogo" element={<CadastroJogoPage />} />
+      <Route path="/cadastrar-jogo" element={<CadastroJogoPage />} />
+      <Route path="/meus-jogos" element={<MeusJogos />} />
     </Routes>
   );
 }

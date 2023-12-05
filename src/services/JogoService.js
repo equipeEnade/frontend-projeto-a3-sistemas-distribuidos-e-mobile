@@ -57,6 +57,17 @@ const JogoService = {
       throw error;
     }
   },
+
+  verificarEstoquePorId: async (id) => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/${id}`);
+      if(response.data.id < 0) return true
+      else return false
+    } catch (error) {
+      throw error;
+    }
+  },
+
 };
 
 export default JogoService;

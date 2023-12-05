@@ -36,11 +36,12 @@
   font-size: 12px;
   font-weight: 500;
 }
-.game_box button {
+.butoes button {
   background-color: var(--laranja);
-  width: 100px;
+  width: 90px;
   height: 30px;
   border-radius: 15px;
   border: none;
   cursor: pointer;
 }
+

@@ -30,11 +30,16 @@
   width: 65px;
   border-radius: 100%;
 }
+.header li{
+  cursor: pointer;
+}
 @media (max-width: 650px) {
   .header {
     max-height: none;
-    height: 120px;
+    height: 130px;
     padding-top: 10px;
+    border-bottom: 3px solid white;
+    margin-bottom: 50px;
   }
   .header nav {
     display: flex;
@@ -48,5 +53,8 @@
     margin: 0;
     padding: 0;
     gap: 15px;
+  }
+  .header img {
+    border: 3px solid white;
   }
 }

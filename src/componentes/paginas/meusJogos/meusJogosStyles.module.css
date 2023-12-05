@@ -1,0 +1,47 @@
+.container{
+    display: flex;
+    justify-content: center;
+  }
+  .lista_com_todos_os_jogos {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    box-sizing: border-box;
+    justify-content: center;
+    gap: 50px;
+    padding-top: 30px;
+  }
+  .game_box {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .game_box div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+  }
+  .game_box h1,
+  .game_box h2 {
+    margin: 0;
+  }
+  .game_box h1 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .game_box h2 {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .game_box button {
+    background-color: var(--laranja);
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+  }
+  

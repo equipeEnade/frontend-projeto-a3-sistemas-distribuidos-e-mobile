@@ -41,10 +41,12 @@ export default function Login() {
   function cadastrar(usuarioCadastro) {
     UsuarioService.post(usuarioCadastro)
       .then((userData) => {
-        useNavigate.push("/", usuarioCadastro);
+        alert("Seu cadastro foi feito com sucesso!")
+        navigate("/", { state: userData });
       })
       .catch((error) => {
         console.error("Erro ao realizar cadastro:", error);
+        alert("Estre email já foi utilizado, tente outro!")
       });
   }
 
