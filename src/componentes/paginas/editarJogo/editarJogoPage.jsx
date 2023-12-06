@@ -14,10 +14,11 @@ export default function EditarJogoPage() {
 
 
   var idUsuario = null;
-  if (location.state) idUsuario = location.state.id;
+  if (location.state) idUsuario = location.state.idUsuario;
 
   useEffect(() => {
     buscarUsuarioPorId(idUsuario);
+    preencherDados()
   }, [idUsuario]);
 
 
@@ -31,11 +32,36 @@ export default function EditarJogoPage() {
       });
   }
 
+  function preencherDados(){
+    const form = document.getElementById("form")
+    const titulo = form.titulo;
+    const descricao = form.descricao;
+    const preco = parseFloat(form.preco);
+    const estoque = parseInt(form.estoque);
+    var plataformas = form.plataformas;
+    const nota = parseFloat(form.nota);
+    const categoria = form.categoria;
+    const urlImagem = form.urlImagem;
+
+    titulo.value = location.state.jogo.titulo
+    descricao.value = location.state.jogo.descricao
+    // preco.value = location.state.jogo.preco
+    // estoque.value = location.state.jogo.estoque
+    plataformas.value = location.state.jogo.plataformas
+    // nota.value = location.state.jogo.nota
+    categoria.value = location.state.jogo.categoria
+    urlImagem.value = location.state.jogo.urlImagem
+    
+
+
+    console.log(location.state.jogo.titulo);
+  }
+
 
   function editar(event) {
     event.preventDefault();
 
-    const id = idUsuario
+    const id = location.state.jogo.id
     const form = event.target;
     const titulo = form.titulo.value;
     const descricao = form.descricao.value;
@@ -78,8 +104,8 @@ console.log(jogo_cadastro);
     
       <Header usuario={usuario} />
     <div className={Styles.conteiner}>
-      <form onSubmit={editar}>
-        <h1>Cadastrar Jogo</h1>
+      <form id="form" onSubmit={editar}>
+        <h1>Editar Jogo</h1>
         <div>
           <label>Título</label>
           <input type="text" name="titulo" />
@@ -106,13 +132,13 @@ console.log(jogo_cadastro);
         </div>
         <div>
           <label>Categoria</label>
-          <input type="text" name="categoria" />
+          <input type="text" name="categorias" />
         </div>
         <div>
           <label>URL da Imagem</label>
           <input type="text" name="urlImagem" />
         </div>
-        <button type="submit">Cadastrar</button>
+        <button type="submit">Editar</button>
       </form>
     </div>
     </>

@@ -100,7 +100,8 @@ export default function Home() {
   }
 
   function editar(jogo) {
-    navigate("/editar-jogo", { state: jogo });
+    const jogoEUser = {idUsuario, jogo}
+    navigate("/editar-jogo", { state: jogoEUser });
 
   }
 

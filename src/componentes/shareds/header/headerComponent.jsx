@@ -19,6 +19,11 @@ export default function Header(props) {
           {usuario.role == "ADMIN" && (
             <li onClick={() => redirecionarComProps("/cadastrar-jogo")}>Cadastrar Produtos</li>
           )}
+          
+          {usuario.role == "ADMIN" && (
+            <li onClick={() => redirecionarComProps("/painel-admin")}>Painel Admin</li>
+          )}
+
           {usuario.role == undefined && (
             <li>
               <Link to={"/login"}>Fazer login</Link>

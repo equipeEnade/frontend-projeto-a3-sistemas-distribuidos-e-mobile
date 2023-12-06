@@ -16,42 +16,16 @@ export default function MeusJogos(props) {
 
   useEffect(() => {
     buscarUsuarioPorId(idUsuario);
-    // buscarCompras(idUsuario);
-    buscarProdutos();
+    buscarProdutos(idUsuario);
   }, [idUsuario]);
 
-  async function buscarCompras(id) {
+  async function buscarProdutos(id) {
     try {
       const comprasFeitas = await CompraService.findComrasByIdUsuario(id);
-      setCompras(comprasFeitas);
+      setJogos(comprasFeitas);
       return comprasFeitas;
     } catch (error) {
       console.error("Erro ao buscar compras:", error);
-    }
-  }
-
-  async function buscarProdutos() {
-    const _compras = await buscarCompras(idUsuario);
-    try {
-      const _jogos = [...jogos];
-
-      for (const compra of _compras) {
-        const jogoEncontrado = await JogoService.findById(compra.id_produto);
-        _jogos.push(jogoEncontrado);
-      }
-
-      setJogos(_jogos);
-    } catch (error) {
-      console.error("Erro ao buscar produtos:", error);
-    }
-  }
-
-  async function buscarProduto(compra) {
-    try {
-      const jogoEncontrado = await JogoService.findById(compra.id_produto);
-      return jogoEncontrado
-    } catch (error) {
-      console.error("Erro ao buscar jogo", error);
     }
   }
 
@@ -65,15 +39,6 @@ export default function MeusJogos(props) {
       });
   }
 
-  function buscarProdutoPorId(id) {
-    JogoService.findById(id)
-      .then((produtoData) => {
-        return produtoData;
-      })
-      .catch((error) => {
-        console.error("Erro ao buscar produto:", error);
-      });
-  }
   function deletarCompra() {}
   return (
     <>
@@ -83,7 +48,7 @@ export default function MeusJogos(props) {
           {jogos.length > 0 &&
             jogos.map((jogo, index) => (
               <div key={index} className={Styles.game_box}>
-                <img src={jogo.urlImagem} alt="" />
+                <img src={jogo.urlImagem} alt={jogo.titulo} />
                 <div>
                   <h1>{jogo.titulo}</h1>
                   <h2>{jogo.descricao}</h2>

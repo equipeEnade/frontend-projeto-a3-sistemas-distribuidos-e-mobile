@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import MeusJogos from './componentes/paginas/meusJogos/MeusJogos';
 import ShowGame from './componentes/paginas/showGame/showGame';
 import EditarJogoPage from './componentes/paginas/editarJogo/editarJogoPage';
+import PainelAdminPage from './componentes/paginas/painelAdmin/PainelAdmin';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/editar-jogo" element={<EditarJogoPage />} />
       <Route path="/meus-jogos" element={<MeusJogos />} />
       <Route path="/show-game" element={<ShowGame />} />
+      <Route path="/painel-admin" element={<PainelAdminPage />} />
     </Routes>
   );
 }

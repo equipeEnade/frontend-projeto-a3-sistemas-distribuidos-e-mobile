@@ -57,6 +57,15 @@ const CompraService = {
     }
   },
 
+  findProdutosByIdUsuario: async (id) => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/getProdutosCompradosPorCliente/${id}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+
   findComprasByIdProduto: async (id) => {
     try {
       const response = await axios.get(`${API_BASE_URL}/produto/${id}`);
