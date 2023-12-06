@@ -88,11 +88,9 @@ export default function MeusJogos(props) {
                   <h1>{jogo.titulo}</h1>
                   <h2>{jogo.descricao}</h2>
                   <h1>{jogo.preco} R$</h1>
-                  <h1>{jogo.categorias} R$</h1>
-                  <h1>{jogo.plataformas} R$</h1>
-                  <h1>{jogo.estoque} R$</h1>
-                  <h1>{jogo.comentarios} R$</h1>
-                  <button onClick={() => deletarCompra()}>Deletar</button>
+                  <h1>{jogo.categorias}</h1>
+                  <h1>{jogo.plataformas}</h1>
+                  <h1>{jogo.comentarios}</h1>
                 </div>
               </div>
             ))}

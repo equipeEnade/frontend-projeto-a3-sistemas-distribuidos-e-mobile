@@ -1,4 +1,4 @@
-import Styles from "./cadastrarJogoStyles.module.css";
+import Styles from "./editarJogoStyles.module.css";
 import JogoService from "../../../services/JogoService";
 import Header from "../../shareds/header/headerComponent";
 import { useState, useEffect } from "react";
@@ -7,10 +7,11 @@ import UsuarioService from "../../../services/UsuarioService";
 
 
 
-export default function CadastroJogoPage() {
+export default function EditarJogoPage() {
 
   const location = useLocation();
   const [usuario, setUsuario] = useState({});
+
 
   var idUsuario = null;
   if (location.state) idUsuario = location.state.id;
@@ -18,6 +19,8 @@ export default function CadastroJogoPage() {
   useEffect(() => {
     buscarUsuarioPorId(idUsuario);
   }, [idUsuario]);
+
+
   function buscarUsuarioPorId(id) {
     UsuarioService.findById(id)
       .then((userData) => {
@@ -29,9 +32,10 @@ export default function CadastroJogoPage() {
   }
 
 
-  function cadastrar(event) {
+  function editar(event) {
     event.preventDefault();
 
+    const id = idUsuario
     const form = event.target;
     const titulo = form.titulo.value;
     const descricao = form.descricao.value;
@@ -43,9 +47,10 @@ export default function CadastroJogoPage() {
     const urlImagem = form.urlImagem.value;
 
     plataformas = [plataformas]
-
+    
 
     const jogo_cadastro = {
+      id,
       titulo,
       descricao,
       preco,
@@ -58,13 +63,13 @@ export default function CadastroJogoPage() {
 
 console.log(jogo_cadastro);
 
-    JogoService.post(jogo_cadastro)
+    JogoService.put(jogo_cadastro)
       .then((userData) => {
-        alert("Jogo cadastrado com sucesso!");
+        alert("Jogo editado com sucesso!");
       })
       .catch((error) => {
         console.error("Erro ao realizar cadastro do jogo:", error.message);
-        alert("Erro ao realizar cadastro do jogo");
+        alert("Erro ao realizar editar do jogo");
       });
   }
 
@@ -73,7 +78,7 @@ console.log(jogo_cadastro);
     
       <Header usuario={usuario} />
     <div className={Styles.conteiner}>
-      <form onSubmit={cadastrar}>
+      <form onSubmit={editar}>
         <h1>Cadastrar Jogo</h1>
         <div>
           <label>Título</label>

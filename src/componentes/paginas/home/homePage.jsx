@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import UsuarioService from "../../../services/UsuarioService";
 import JogoService from "../../../services/JogoService";
 import CompraService from "../../../services/CompraService";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Home() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [jogos, setJogos] = useState([]);
   const [usuario, setUsuario] = useState({});
   const [produto, setProduto] = useState({});
@@ -55,7 +56,7 @@ export default function Home() {
       return produtoData.estoque > 0 ? true : false;
     } catch (error) {
       console.error("Erro ao buscar produto:", error);
-      return false; // Se houver um erro, retorna false (não há estoque)
+      return false;
     }
   }
 
@@ -82,18 +83,25 @@ export default function Home() {
 
   async function verMais(id_produto) {
     var produtoShow = await buscarProdutoPorId(id_produto);
+    console.log(produtoShow);
+    navigate("/show-game", { state: "faffsaf" });
   }
 
   function deletar(id) {
     JogoService.deleteById(id)
       .then((data) => {
-        alert("Jogo Deletado")
-        listarJogos()
+        alert("Jogo Deletado");
+        listarJogos();
       })
       .catch((error) => {
-        alert("Jogo não encontrado")
+        alert("Jogo não encontrado");
         console.error("Erro ao deletar jogo:", error);
       });
+  }
+
+  function editar(jogo) {
+    navigate("/editar-jogo", { state: jogo });
+
   }
 
   return (
@@ -106,13 +114,25 @@ export default function Home() {
               <div key={index} className={Styles.game_box}>
                 <img src={jogo.urlImagem} alt="" />
                 <div>
-                  <h1>{jogo.titulo}</h1>
+                  <h1>{"Titulo: " + jogo.titulo}</h1>
                   <h2>{jogo.descricao}</h2>
-                  <h1>{jogo.preco} R$</h1>
+                  <h2>{"Nota: " + jogo.nota}</h2>
+                  <h1>{"Preço: " + jogo.preco} R$</h1>
+                  <h1>{"Categorias: " + jogo.categorias}</h1>
+                  <h1>{"Plataformas: " + jogo.plataformas}</h1>
+                  <h1>{jogo.comentarios}</h1>
                   <div className={Styles.butoes}>
-                    {usuario.role != "ADMIN" && ( <button onClick={() => comprar(jogo.id)}>Comprar</button> )}
-                    {usuario.role == "ADMIN" &&( <button onClick={() => deletar(jogo.id)}>Deletar</button> )}
-                    <button onClick={() => verMais(jogo.id)}>Ver Mais</button>
+                    {usuario.role != "ADMIN" && (
+                      <button onClick={() => comprar(jogo.id)}>Comprar</button>
+                    )}
+                    {usuario.role == "ADMIN" && (
+                      <div className={Styles.butoes}>
+                        <button onClick={() => deletar(jogo.id)}>
+                          Deletar
+                        </button>
+                        <button onClick={() => editar(jogo)}>Editar</button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

@@ -1,6 +1,7 @@
 .container{
   display: flex;
   justify-content: center;
+  padding-bottom: 100px;
 }
 .lista_com_todos_os_jogos {
   display: flex;
@@ -20,7 +21,7 @@
 .game_box div {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
   text-align: center;
 }

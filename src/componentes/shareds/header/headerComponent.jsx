@@ -17,9 +17,7 @@ export default function Header(props) {
       <nav>
         <ul>
           {usuario.role == "ADMIN" && (
-            <li>
-              <Link to={"/cadastrar-jogo"}>Cadastrar Produtos</Link>
-            </li>
+            <li onClick={() => redirecionarComProps("/cadastrar-jogo")}>Cadastrar Produtos</li>
           )}
           {usuario.role == undefined && (
             <li>
