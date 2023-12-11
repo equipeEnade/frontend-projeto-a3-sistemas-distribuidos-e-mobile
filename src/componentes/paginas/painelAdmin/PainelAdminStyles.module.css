@@ -1,26 +1,94 @@
-.conteiner{
+.conteiner {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 100px 0;
+}
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.usuario_box {
+  background-color: var(--laranja);
+  padding: 20px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 15px;
+  justify-content: center;
+}
+.butoes {
+  display: flex;
+  justify-content: space-between;
+}
+.butoes button {
+  background-color: var(--azul);
+  width: 100px;
+  height: 40px;
+  font-weight: 600;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+}
+.edit_box form{
+  color: black;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.edit_box form div{
     display: flex;
-    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+}
+.edit_box input {
+  color: black;
+  border: none;
+  padding-left: 15px;
+}
+.edit_box button {
+  background-color: var(--laranja);
+  width: 90px;
+  height: 40px;
+  font-weight: 600;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+}
+.lista_produtos {
+    display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    padding: 100px 0;
-}
-.box{
-    display: flex;
-    gap: 30px;
-} 
-.usuario_box{
-    background-color: var(--laranja);
-    padding: 20px;
+    max-width: 1200px;
     box-sizing: border-box;
-    border: none;
-    border-radius: 15px;
-}
-.usuario_box button {
-    background-color: var(--azul);
-    width: 90px;
-    height: 30px;
-    border-radius: 15px;
-    border: none;
-    cursor: pointer;
+    justify-content: center;
+    gap: 50px;
+    padding-top: 30px;
+  }
+  .produto_box {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .produto_box div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    text-align: center;
+  }
+  .produto_box h1,
+  .produto_box h2 {
+    margin: 0;
+  }
+  .produto_box h1 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .produto_box h2 {
+    font-size: 12px;
+    font-weight: 500;
   }

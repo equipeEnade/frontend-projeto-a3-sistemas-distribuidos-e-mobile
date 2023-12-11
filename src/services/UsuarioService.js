@@ -23,7 +23,7 @@ const UsuarioService = {
 
   put: async (data) => {
     try {
-      const response = await axios.put(`${API_BASE_URL}`, data);
+      const response = await axios.put(`${API_BASE_URL}/${data.id}`, data);
       return response.data;
     } catch (error) {
       throw error;

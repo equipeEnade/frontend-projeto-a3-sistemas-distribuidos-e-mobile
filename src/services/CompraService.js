@@ -74,6 +74,22 @@ const CompraService = {
       throw error;
     }
   },
+  getInfoGastosUsuario: async (id) => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/getInfoGastosUsuario/${id}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+  getProdutosCompradosPorCliente: async (id) => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/getProdutosCompradosPorCliente/${id}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
 };
 
 export default CompraService;
